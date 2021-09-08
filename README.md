@@ -5,31 +5,31 @@ Resnet50 + 1 block Unet
 
 ![model]()
 
-##Data preparation
+## Data preparation
 
 Cifar10-dataset transform (data.py)
 
-*Crop, padding
+* Crop, padding
 
-*Rotate
+* Rotate
 
-*Flipping (vertical, horizontal)
+* Flipping (vertical, horizontal)
 
-*Normalization
+* Normalization
 
-##Training
+## Training
 
-*Loss: Cross Entropy
+* Loss: Cross Entropy
 
-*Optimizer: SGD (lr = 0.001)
+* Optimizer: SGD (lr = 0.001)
 
-*Scheduler: ReduceLROnPlateau(maximize test accuracy)
+* Scheduler: ReduceLROnPlateau(maximize test accuracy)
 
-*If train_acc >99 for 30 epochs continously -> Repeat transform with different ratio
+* If train_acc >99 for 30 epochs continously -> Repeat transform with different ratio
 
-##Checkpoint file link
+## Checkpoint file link
 
-##Result
+## Result
 ![Loss and accuracy]()
 
 ![Confusion matrix]()
