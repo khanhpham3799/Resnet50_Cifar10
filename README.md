@@ -1,13 +1,13 @@
 # Welcom to Duy Khanh channel
 This is the modified of Resnet50 model for CIFAR10 dataset.
-## Model summary
-Resnet50 + 1 block Unet
+## Model summary (Resnet_Unet_model.py)
+Resnet50 + 1 block Unet 
 
 ![model]()
 
 ## Data preparation
 
-Cifar10-dataset transform (data.py)
+Cifar10-dataset transform 
 
 * Crop, padding
 
