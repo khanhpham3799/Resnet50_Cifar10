@@ -131,8 +131,8 @@ def test(epoch):
             'optimizer': optimizer.state_dict(),
             'best_acc': acc
         }
-        torch.save(acc, './Resnet50_bestacc.pth')
-        torch.save(state, './Resnet50_checkpoint.pth')
+        torch.save(acc, 'Resnet50_bestacc.pth')
+        torch.save(state, 'Resnet50_checkpoint.pth')
         best_acc = acc
     return acc
 
@@ -160,7 +160,8 @@ for epoch in range(start_epoch, start_epoch + 150):
         trainset = torchvision.datasets.CIFAR10(
             root='CIFAR10_train', train=True, download=True, transform=transform_train)
         trainloader = DataLoader(trainset, batch_size=64, shuffle=True)
-        load_checkpoint(torch.load("./Resnet50_checkpoint.pth"), model=net, optimizer=optimizer)
+        load_checkpoint(torch.load("Resnet50_checkpoint.pth"), model=net, optimizer=optimizer)
+        best_acc = torch.load('Resnet50_bestacc.pth')
         for param_group in optimizer.param_groups:
             param_group['lr'] = 0.001
         i = 0
