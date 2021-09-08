@@ -34,6 +34,7 @@ Cifar10-dataset transform
 ## Checkpoint file link
 
 ## Result
+Loss and accuracy
 ![Loss and accuracy](https://user-images.githubusercontent.com/64471569/132589044-605fe954-9ed8-4795-86fd-919afb76433d.png)
-
+Confusion matrix
 ![Confusion matrix](https://user-images.githubusercontent.com/64471569/132592485-0f7e4227-012b-4198-b751-64bffa7f45ea.png)
