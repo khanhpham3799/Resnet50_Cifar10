@@ -1,5 +1,28 @@
 # Welcom to Duy Khanh channel
 This is the modified of Resnet50 model for CIFAR10 dataset.
+# Model summary
+Resnet50 + 1 block Unet
 
-## new img
-![Anh](https://drive.google.com/file/d/1_TrqjR-fnh_Vij5G2FDkTEz6IZEodjJQ/view?usp=sharing) 
+![model]()
+#Data preparation
+Cifar10-dataset transform (data.py)
+*Crop, padding
+
+*Rotate
+
+*Flipping (vertical, horizontal)
+
+*Normalization
+#Training
+*Loss: Cross Entropy
+
+*Optimizer: SGD (lr = 0.001)
+
+*Scheduler: ReduceLROnPlateau(maximize test accuracy)
+
+*If train_acc >99 for 30 epochs continously -> Repeat transform with different ratio
+#Checkpoint and best_acc file link
+#Result
+![Loss and accuracy]()
+
+![Confusion matrix]()
