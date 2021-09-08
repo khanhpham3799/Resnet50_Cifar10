@@ -1,1 +1,2 @@
-# Resnet50_Cifar10
+# Welcom to Duy Khanh channel
+This is the modified of Resnet50 model for CIFAR10 dataset. 
