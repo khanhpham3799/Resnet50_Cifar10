@@ -32,7 +32,7 @@ Cifar10-dataset transform
 * If train_acc >99 for 30 epochs continously -> Repeat transform with different ratio
 
 ## Checkpoint file link
-
+"https://drive.google.com/file/d/1kY6iR6XI03o6DWUfqf9s2KFh1Z4cw02c/view?usp=sharing"
 ## Result
 Loss and accuracy
 ![Loss and accuracy](https://user-images.githubusercontent.com/64471569/132589044-605fe954-9ed8-4795-86fd-919afb76433d.png)
