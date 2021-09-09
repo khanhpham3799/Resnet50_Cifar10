@@ -143,25 +143,26 @@ for epoch in range(start_epoch, start_epoch + 150):
     train_acc = train(epoch, trainloader=trainloader)
     test_acc = test(epoch)
     scheduler.step(test_acc)
-    if test_acc < best_acc:
-        i += 1
-    if test_acc >= best_acc:
-        i = 0
-    if train_acc > 99 and i > 30:
-        transform_train = transforms.Compose([
-            transforms.RandomCrop(32, padding=4),
-            transforms.RandomAffine((-20, 20)),
-            transforms.RandomHorizontalFlip(p=0.7),
-            transforms.RandomVerticalFlip(p=0.1),
-            transforms.ToTensor(),
-            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-        ])
+    if train_acc > 99:
+        if test_acc < best_acc:
+            i += 1
+        if test_acc >= best_acc:
+            i = 0
+        if i > 30:
+            transform_train = transforms.Compose([
+                transforms.RandomCrop(32, padding=4),
+                transforms.RandomAffine((-20, 20)),
+                transforms.RandomHorizontalFlip(p=0.7),
+                transforms.RandomVerticalFlip(p=0.1),
+                transforms.ToTensor(),
+                transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+            ])
 
-        trainset = torchvision.datasets.CIFAR10(
-            root='CIFAR10_train', train=True, download=True, transform=transform_train)
-        trainloader = DataLoader(trainset, batch_size=64, shuffle=True)
-        load_checkpoint(torch.load("Resnet50_checkpoint.pth"), model=net, optimizer=optimizer)
-        best_acc = torch.load('Resnet50_bestacc.pth')
-        for param_group in optimizer.param_groups:
-            param_group['lr'] = 0.001
-        i = 0
+            trainset = torchvision.datasets.CIFAR10(
+                root='CIFAR10_train', train=True, download=True, transform=transform_train)
+            trainloader = DataLoader(trainset, batch_size=64, shuffle=True)
+            #load_checkpoint(torch.load("./Resnet50_checkpoint.pth"), model=net, optimizer=optimizer)
+            #best_acc = torch.load('./Resnet50_bestacc.pth')
+            for param_group in optimizer.param_groups:
+                param_group['lr'] = 0.001
+            i = 0
